@@ -2,7 +2,6 @@ import SimpleHTTPServer
 import SocketServer
 import re
 
-
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
     def do_GET(self):

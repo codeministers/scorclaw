@@ -1,24 +1,25 @@
 import serial
 
+
 class Core:
     '''
     Scorbot core functions
     '''
     
-    def __init__(self, port_name):
-        self.port_name = port_name
+    def __init__(self, serial_port):
+        self.serial_port = serial_port
         self.serial = ''
         
-    def open(self):
-        self.serial = serial.Serial(port = self.port_name)
+    def open_con(self):
+        self.serial = serial.Serial(port = self.serial_port)
  
-    def close(self):
+    def close_con(self):
         self.serial.close()
     
     def write(self, command):
         self.serial.write(command + '\r')
         print '******************************'
-        print '***Command send:'
+        print '***Command sent:'
         print command
         print '***Command response:'
         

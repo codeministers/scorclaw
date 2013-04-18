@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>ScroClaw</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script>
+		function moreX() {
+			var request = $.ajax({
+				url: "/+x",
+				type: "GET",
+			});
+	
+			request.done(function(dev) {
+			
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Error en la petición: " + textStatus);
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<td></td>
+			<td><button onclick="moreX();">^</button></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><button>Catch</button></td>
+		</tr>
+		<tr>
+			<td><button><</button></td>
+			<td></td>
+			<td><button>></button></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><button>Home</button></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button>`´</button></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</body>
+
+</html>

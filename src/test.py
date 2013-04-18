@@ -1,11 +1,53 @@
-from core import Core
+#from core import Core
+#from functions import Functions
+from logic import Logic
 
-core = Core('/dev/cu.PL2303-00002006')
+#core = Core('/dev/cu.PL2303-00002006')
+#core = Functions('/dev/cu.PL2303-00002006')
+core = Logic('/dev/cu.PL2303-00002006')
 
-core.open()
+#core.open_con()
 
 
+core.initialize()
+
+
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+core.less_y()
+
+
+
+
+'''
+pos1 = 'ini'
+pos2 = 'user'
+pos3 = 'end'
+
+core.def_pos(pos1, pos2, pos3)
+
+core.teach_pos(pos1, 14, -2655, 2907, -922, -4)
+
+core.core.write('move ' + pos1)
+'''
+
+
+'''
 core.write('home')
+'''
 
 
 '''core.write('open')
@@ -56,4 +98,4 @@ core.write('close')
 core.write('move pos1')'''
 
 
-core.close()
+core.close_con()
