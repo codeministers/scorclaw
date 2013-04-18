@@ -1,5 +1,14 @@
 import SimpleHTTPServer
+import SocketServer
 import re
+
+from logic import Logic
+
+SERVER_PORT = 8080
+SERIAL_PORT = '/dev/cu.PL2303-00002006'
+
+logic = Logic(SERIAL_PORT)
+logic.initialize()
 
 class Server(SimpleHTTPServer.SimpleHTTPRequestHandler):
     '''
@@ -18,21 +27,27 @@ class Server(SimpleHTTPServer.SimpleHTTPRequestHandler):
             verb = pathSplitted[1]
             
             if verb == 'more_x':
+                logic.more_x()
                 response = 'more x done'
                 
             elif verb == 'less_x':
+                logic.less_x()
                 response = 'less x done'
                 
             elif verb == 'more_y':
+                logic.more_y()
                 response = 'more y done'
                 
             elif verb == 'less_y':
+                logic.less_y()
                 response = 'less y done'
                 
             elif verb == 'catch':
+                logic.catch()
                 response = 'catch done'
                 
             elif verb == 'home':
+                logic.home()
                 response = 'home done'
                 
             elif verb == 'canIMove':
@@ -60,4 +75,9 @@ class Server(SimpleHTTPServer.SimpleHTTPRequestHandler):
             
         self.wfile.write('{"response": "' + response + '"}')
         
-    
+
+server = Server
+httpd = SocketServer.TCPServer(('', SERVER_PORT), server)
+
+print 'Scorclaw listening at port ' + str(SERVER_PORT)
+httpd.serve_forever()    
