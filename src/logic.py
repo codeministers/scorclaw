@@ -11,6 +11,7 @@ class Logic:
     Constantes, variables globales, metodos, ...
     Tambien la "union" entre esta clase y la Functions
     '''
+    
     PITCH = -933
     ROLL = -6
     Z = 1864
@@ -39,19 +40,19 @@ class Logic:
         self.pos_user = 'user'
         self.current_x = 97
         self.current_y = -1959
-    
+        
     
     def close_con(self):
         self.scorbot.close_con()
-    
+        
     
     def fast(self):
         self.scorbot.speed(50)
-    
+        
     
     def slow(self):
         self.scorbot.speed(7)
-    
+        
     
     def initialize(self):
         '''
@@ -72,7 +73,7 @@ class Logic:
         self.slow()
         self.scorbot.here(self.pos_user)
         
-        
+    
     def calculate_z(self, y):
         '''
         pos     y        z
@@ -98,7 +99,7 @@ class Logic:
             self.current_x = x
         if y != None:
             self.current_y = y
-     
+        
     
     def more_x(self):
         if self.current_x + Logic.INTERVAL <= Logic.MAX_X:
@@ -108,7 +109,7 @@ class Logic:
         else:
             print 'more_x maximo: ' + str(self.current_x)
         
-        
+    
     def less_x(self):
         if self.current_x - Logic.INTERVAL >= Logic.MIN_X:
             self.update_x_y(self.current_x - Logic.INTERVAL, None)
@@ -117,7 +118,7 @@ class Logic:
         else:
             print 'less_x minimo: ' + str(self.current_x)
         
-        
+    
     def more_y(self):
         if self.current_y + Logic.INTERVAL <= Logic.MAX_Y:
             self.update_x_y(None, self.current_y + Logic.INTERVAL)
@@ -126,7 +127,7 @@ class Logic:
         else:
             print 'more_y maximo: ' + str(self.current_y)
         
-        
+    
     def less_y(self):
         if self.current_y - Logic.INTERVAL >= Logic.MIN_Y:
             self.update_x_y(None, self.current_y - Logic.INTERVAL)
@@ -134,11 +135,13 @@ class Logic:
             self.scorbot.move(self.pos_user)
         else:
             print 'less_y minimo: ' + str(self.current_y)
-     
+        
+    
     def home(self):
         self.update_x_y(Logic.INI_X, Logic.INI_Y)
         self.scorbot.move(self.pos_ini)
         self.scorbot.here(self.pos_user)
+        
     
     def catch(self):
         '''
@@ -174,5 +177,4 @@ class Logic:
         
         self.slow()
         
-        
-        
+    

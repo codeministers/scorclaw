@@ -6,15 +6,19 @@ class Core:
     Scorbot core functions
     '''
     
+    
     def __init__(self, serial_port):
         self.serial_port = serial_port
         self.serial = ''
         
+    
     def open_con(self):
         self.serial = serial.Serial(port = self.serial_port)
- 
+        
+    
     def close_con(self):
         self.serial.close()
+        
     
     def write(self, command):
         self.serial.write(command + '\r')
@@ -32,3 +36,5 @@ class Core:
                 break
         
         print response
+        
+    

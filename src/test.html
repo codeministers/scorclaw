@@ -5,30 +5,19 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>ScroClaw</title>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-	<script>
-		function moreX() {
-			var request = $.ajax({
-				url: "/+x",
-				type: "GET",
-			});
-	
-			request.done(function(dev) {
-			
-			});
-	
-			request.fail(function(jqXHR, textStatus) {
-				alert("Error en la petición: " + textStatus);
-			});
-		}
-	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
 <body>
-	<table border="1">
+	<div>
+		<label>Server port:</label>
+		<input id="port" value="8080"></input>
+	</div>
+	<br/>
+	<table border="3">
 		<tr>
 			<td></td>
-			<td><button onclick="moreX();">^</button></td>
+			<td><button id="less_x">^</button></td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -36,27 +25,124 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td><button>Catch</button></td>
+			<td><button id="catch">Catch</button></td>
 		</tr>
 		<tr>
-			<td><button><</button></td>
+			<td><button id="less_y"><</button></td>
 			<td></td>
-			<td><button>></button></td>
+			<td><button id="more_y">></button></td>
 			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><button>Home</button></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><button>`´</button></td>
+			<td></td>
+			<td></td>
+			<td><button id="home">Home</button></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button id="more_x">`</button></td>
 			<td></td>
 			<td></td>
 		</tr>
 	</table>
+	<script>
+		$("#more_x").click(function() {
+			var request = $.ajax({
+				url: "http://localhost:" + $("#port").val() + "/more_x",
+				type: "GET",
+				dataType: "json"
+			});
+	
+			request.done(function(dev) {
+				console.log(dev.response);
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Fail in the request: " + textStatus);
+			});
+		});
+		
+		$("#less_x").click(function() {
+			var request = $.ajax({
+				url: "http://localhost:" + $("#port").val() + "/less_x",
+				type: "GET",
+				dataType: "json"
+			});
+	
+			request.done(function(dev) {
+				console.log(dev.response);
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Fail in the request: " + textStatus);
+			});
+		});
+		
+		$("#more_y").click(function() {
+			var request = $.ajax({
+				url: "http://localhost:" + $("#port").val() + "/more_y",
+				type: "GET",
+				dataType: "json"
+			});
+	
+			request.done(function(dev) {
+				console.log(dev.response);
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Fail in the request: " + textStatus);
+			});
+		});
+		
+		$("#less_y").click(function() {
+			var request = $.ajax({
+				url: "http://localhost:" + $("#port").val() + "/less_y",
+				type: "GET",
+				dataType: "json"
+			});
+	
+			request.done(function(dev) {
+				console.log(dev.response);
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Fail in the request: " + textStatus);
+			});
+		});
+		
+		$("#catch").click(function() {
+			var request = $.ajax({
+				url: "http://localhost:" + $("#port").val() + "/catch",
+				type: "GET",
+				dataType: "json"
+			});
+	
+			request.done(function(dev) {
+				console.log(dev.response);
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Fail in the request: " + textStatus);
+			});
+		});
+		
+		$("#home").click(function() {
+			var request = $.ajax({
+				url: "http://localhost:" + $("#port").val() + "/home",
+				type: "GET",
+				dataType: "json"
+			});
+	
+			request.done(function(dev) {
+				console.log(dev.response);
+			});
+	
+			request.fail(function(jqXHR, textStatus) {
+				alert("Fail in the request: " + textStatus);
+			});
+		});
+	</script>
 </body>
 
 </html>
