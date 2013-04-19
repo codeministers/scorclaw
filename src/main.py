@@ -1,13 +1,12 @@
 import SocketServer
 
-from server import Server
+from variables import SERVER_PORT
+
+from requests import Requests
 
 
-SERVER_PORT = 8080
-SERIAL_PORT = '/dev/cu.PL2303-00002006'
+httpd = SocketServer.TCPServer(('', SERVER_PORT), Requests)
 
-server = Server(SERIAL_PORT)
-httpd = SocketServer.TCPServer(('', SERVER_PORT), server)
-
-print 'Scorclaw listening at port ' + str(SERVER_PORT)
+print 'ScorClaw listening at port ' + str(SERVER_PORT)
 httpd.serve_forever()
+

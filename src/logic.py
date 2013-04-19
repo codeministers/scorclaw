@@ -1,4 +1,5 @@
 import time
+import atexit
 
 from functions import Functions
 
@@ -29,7 +30,6 @@ class Logic:
     
     INTERVAL = 100
     
-    
     def __init__(self, serial_port):
         '''
         Constructor
@@ -49,7 +49,10 @@ class Logic:
     def fast(self):
         self.scorbot.speed(50)
         
-    
+    def medium(self):
+        self.scorbot.speed(20)
+        
+        
     def slow(self):
         self.scorbot.speed(7)
         
@@ -59,6 +62,7 @@ class Logic:
         Mejorar esta funcion
         '''
         self.scorbot.open_con()
+        atexit.register(self.scorbot.close_con)
         #self.scorbot.home()
         
         self.scorbot.def_pos(self.pos_ini, self.pos_end, self.pos_user)
@@ -71,7 +75,7 @@ class Logic:
         
         self.scorbot.open()
         self.slow()
-        self.scorbot.here(self.pos_user)
+        self.scorbot.setp(self.pos_user, self.pos_ini)
         
     
     def calculate_z(self, y):
@@ -138,9 +142,11 @@ class Logic:
         
     
     def home(self):
+        self.medium()
         self.update_x_y(Logic.INI_X, Logic.INI_Y)
         self.scorbot.move(self.pos_ini)
-        self.scorbot.here(self.pos_user)
+        self.scorbot.setp(self.pos_user, self.pos_ini)
+        self.slow()
         
     
     def catch(self):
@@ -153,7 +159,7 @@ class Logic:
         self.fast()
         self.scorbot.move(self.pos_user)
         
-        time.sleep(2)
+        time.sleep(1)
         self.scorbot.close()
         self.scorbot.set_z(self.pos_user, Logic.Z)
         self.scorbot.move(self.pos_user)
@@ -162,18 +168,17 @@ class Logic:
         self.scorbot.move(self.pos_end)
         
         z = self.calculate_z(self.current_y)
-        time.sleep(2)
-        self.scorbot.here(self.pos_user)
+        self.scorbot.setp(self.pos_user, self.pos_end)
         self.scorbot.set_z(self.pos_user, z)
         self.scorbot.move(self.pos_user)
         
-        time.sleep(2)
+        time.sleep(4)
         self.scorbot.open()
         self.scorbot.set_z(self.pos_user, Logic.Z)
         self.scorbot.move(self.pos_user)
         self.scorbot.move(self.pos_ini)
-        time.sleep(2)
-        self.scorbot.here(self.pos_user)
+        self.update_x_y(Logic.INI_X, Logic.INI_Y)
+        self.scorbot.setp(self.pos_user, self.pos_ini)
         
         self.slow()
         

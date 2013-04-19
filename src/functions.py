@@ -57,11 +57,6 @@ class Functions:
             self.core.write('move ' + p)
         
     
-    def here(self, *pos):
-        for p in pos:
-            self.core.write('here ' + p)
-        
-    
     def setp(self, pos1, pos2):
         self.core.write('setp ' + pos1 + ' = ' + pos2)
         

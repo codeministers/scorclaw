@@ -47,25 +47,17 @@
 		</tr>
 	</table>
 	<script>
-		$("#more_x").click(function() {
-			var request = $.ajax({
-				url: "http://localhost:" + $("#port").val() + "/more_x",
-				type: "GET",
-				dataType: "json"
-			});
-	
-			request.done(function(dev) {
-				console.log(dev.response);
-			});
-	
-			request.fail(function(jqXHR, textStatus) {
-				alert("Fail in the request: " + textStatus);
-			});
+		$(":button").click(function() {
+			scorclawRequest(this.id);
 		});
 		
-		$("#less_x").click(function() {
+		function scorclawRequest(path) {
+			if(path == "catch") {
+				$(":button").attr("disabled", true);
+			}
+			
 			var request = $.ajax({
-				url: "http://localhost:" + $("#port").val() + "/less_x",
+				url: "http://localhost:" + $("#port").val() + "/" + path,
 				type: "GET",
 				dataType: "json"
 			});
@@ -77,71 +69,19 @@
 			request.fail(function(jqXHR, textStatus) {
 				alert("Fail in the request: " + textStatus);
 			});
-		});
-		
-		$("#more_y").click(function() {
-			var request = $.ajax({
-				url: "http://localhost:" + $("#port").val() + "/more_y",
-				type: "GET",
-				dataType: "json"
-			});
-	
-			request.done(function(dev) {
-				console.log(dev.response);
-			});
-	
-			request.fail(function(jqXHR, textStatus) {
-				alert("Fail in the request: " + textStatus);
-			});
-		});
-		
-		$("#less_y").click(function() {
-			var request = $.ajax({
-				url: "http://localhost:" + $("#port").val() + "/less_y",
-				type: "GET",
-				dataType: "json"
-			});
-	
-			request.done(function(dev) {
-				console.log(dev.response);
-			});
-	
-			request.fail(function(jqXHR, textStatus) {
-				alert("Fail in the request: " + textStatus);
-			});
-		});
-		
-		$("#catch").click(function() {
-			var request = $.ajax({
-				url: "http://localhost:" + $("#port").val() + "/catch",
-				type: "GET",
-				dataType: "json"
-			});
-	
-			request.done(function(dev) {
-				console.log(dev.response);
-			});
-	
-			request.fail(function(jqXHR, textStatus) {
-				alert("Fail in the request: " + textStatus);
-			});
-		});
-		
-		$("#home").click(function() {
-			var request = $.ajax({
-				url: "http://localhost:" + $("#port").val() + "/home",
-				type: "GET",
-				dataType: "json"
-			});
-	
-			request.done(function(dev) {
-				console.log(dev.response);
-			});
-	
-			request.fail(function(jqXHR, textStatus) {
-				alert("Fail in the request: " + textStatus);
-			});
-		});
+			
+			if(path == "catch") {
+				setTimeout(function() {
+					$(":button").attr("disabled", false);
+				}, 10000);
+			}
+			
+			if(path == "home") {
+				setTimeout(function() {
+					$(":button").attr("disabled", false);
+				}, 3000);
+			}
+		}
 	</script>
 </body>
 
