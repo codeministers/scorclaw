@@ -1,5 +1,4 @@
 import time
-import atexit
 
 from functions import Functions
 
@@ -62,8 +61,7 @@ class Logic:
         Mejorar esta funcion
         '''
         self.scorbot.open_con()
-        atexit.register(self.scorbot.close_con)
-        #self.scorbot.home()
+        self.scorbot.home()
         
         self.scorbot.def_pos(self.pos_ini, self.pos_end, self.pos_user)
         

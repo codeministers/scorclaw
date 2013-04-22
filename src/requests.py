@@ -50,9 +50,6 @@ class Requests(SimpleHTTPServer.SimpleHTTPRequestHandler):
                 logic.home()
                 response = 'home done'
                 
-            elif verb == 'canIMove':
-                response = 'yesYouCan'
-            
             else:
                 good_path = False
                 response = 'not a valid verb'

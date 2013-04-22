@@ -1,4 +1,5 @@
 import serial
+import atexit
 
 
 class Core:
@@ -14,6 +15,7 @@ class Core:
     
     def open_con(self):
         self.serial = serial.Serial(port = self.serial_port)
+        atexit.register(self.close_con())
         
     
     def close_con(self):
