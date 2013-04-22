@@ -22,38 +22,54 @@
 		<h1>ScorClaw</h1>
 		<h3>Please, first configure the app</h3>
 	</div>
-	<table border="3">
-		<tr>
-			<td></td>
-			<td><button id="less_x" data-icon="arrow-u" data-iconpos="notext"></button></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><button id="catch" data-icon="check" data-iconpos="notext"></button></td>
-		</tr>
-		<tr>
-			<td><button id="less_y" data-icon="arrow-l" data-iconpos="notext"></button></td>
-			<td></td>
-			<td><button id="more_y" data-icon="arrow-r" data-iconpos="notext"></button></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><button id="home" data-icon="home" data-iconpos="notext"></button></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><button id="more_x" data-icon="arrow-d" data-iconpos="notext"></button></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
+	<div data-role="content">
+		<div id="direction-buttons" style="display: inline-block;">
+			<table border="0">
+				<tr>
+					<td></td>
+					<td><button id="less_x" data-icon="arrow-u" data-iconpos="notext"></button></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><button id="less_y" data-icon="arrow-l" data-iconpos="notext"></button></td>
+					<td></td>
+					<td><button id="more_y" data-icon="arrow-r" data-iconpos="notext"></button></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button id="more_x" data-icon="arrow-d" data-iconpos="notext"></button></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		<div id="aux-buttons" style="float: right; display: inline-block; vertical-align: middle;">
+			<table border="0">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><button id="catch" data-icon="check" data-iconpos="notext"></button></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><button id="home" data-icon="home" data-iconpos="notext"></button></td>
+				</tr>
+				<tr>
+					
+				</tr>
+			</table>
+		</div>
+	</div>
 	<script>
 		$(document).ready(function() {
 			styles = {'padding': '1em'};
