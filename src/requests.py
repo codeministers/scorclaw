@@ -60,16 +60,13 @@ class Requests(SimpleHTTPServer.SimpleHTTPRequestHandler):
         
         if good_path:
             self.send_response(200)
-            self.send_header('Content-type','application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
         
         else:
             self.send_response(404)
-            self.send_header('Content-type','application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
             
+        self.send_header('Content-type','application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
         self.wfile.write('{"response": "' + response + '"}')
         
     
