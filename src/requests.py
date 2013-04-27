@@ -1,8 +1,20 @@
+# -*- coding: utf-8 -*-
+'''
+Created on 26/04/2013
+
+@author: José M. Camacho - camachososa@josemazocom
+@author: Gabriel E. Muñoz - munozrios22@gmail.com
+'''
+
+'''
+The Requests class will handle HTTP requests.
+'''
+
+
 import SimpleHTTPServer
 import re
 
 from variables import SERIAL_PORT
-
 from logic import Logic
 
 
@@ -11,9 +23,6 @@ logic.initialize()
 
 
 class Requests(SimpleHTTPServer.SimpleHTTPRequestHandler):
-    '''
-    Class for handle HTTP requests
-    '''
     
     
     def do_GET(self):

@@ -1,10 +1,21 @@
+# -*- coding: utf-8 -*-
+'''
+Created on 26/04/2013
+
+@author: José M. Camacho - camachososa@josemazocom
+@author: Gabriel E. Muñoz - munozrios22@gmail.com
+'''
+
+'''
+The Functions class will be used by the logic of
+any program for abstract the Core class.
+'''
+
+
 from core import Core
 
 
 class Functions:
-    '''
-    Class to abstract the Core class
-    '''
     
     
     def __init__(self, serial_port):

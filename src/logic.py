@@ -1,17 +1,23 @@
+# -*- coding: utf-8 -*-
+'''
+Created on 26/04/2013
+
+@author: José M. Camacho - camachososa@josemazocom
+@author: Gabriel E. Muñoz - munozrios22@gmail.com
+'''
+
+'''
+The Logic class handles "the logic" of the
+ScorClaw problem.
+'''
+
+
 import time
 
 from functions import Functions
 
 
 class Logic:
-    '''
-    classdocs
-    
-    Mejorar todo de esta clase
-    Constantes, variables globales, metodos, ...
-    Tambien la "union" entre esta clase y la Functions
-    '''
-    
     PITCH = -933
     ROLL = -6
     Z = 1864
@@ -30,9 +36,6 @@ class Logic:
     INTERVAL = 100
     
     def __init__(self, serial_port):
-        '''
-        Constructor
-        '''
         self.scorbot = Functions(serial_port)
         self.pos_ini = 'ini'
         self.pos_end = 'end'
@@ -57,9 +60,6 @@ class Logic:
         
     
     def initialize(self):
-        '''
-        Mejorar esta funcion
-        '''
         self.scorbot.open_con()
         self.scorbot.home()
         
@@ -80,8 +80,6 @@ class Logic:
         '''
         pos     y        z
         fin     -3683    224
-        miny    -3064    265
-        cen     -1959    522
         maxy    -913     845
         
         (-3683, 224) - (-913, 845) = [-2770, -621] = V
@@ -89,9 +87,6 @@ class Logic:
         -621(y + 913) + 2770 (z - 845) = 0
         -621y - 566973 + 2770z - 2340650 = 0
         -621y + 2770z - 2907623 = 0
-        
-        En los puntos centrales hay un error de casi 1cm,
-        asi que se le baja medio centrimetro a todo
         '''
         return ((2907623 + (621 * y)) / 2770) - 50
         

@@ -1,3 +1,20 @@
+# -*- coding: utf-8 -*-
+'''
+Created on 26/04/2013
+
+@author: José M. Camacho - camachososa@josemazocom
+@author: Gabriel E. Muñoz - munozrios22@gmail.com
+'''
+
+'''
+The main module will check the parameters
+for obtain the port for the server and the
+name of the serial port.
+
+After that, the server will be created.
+'''
+
+
 import sys
 import SocketServer
 

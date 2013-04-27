@@ -1,11 +1,22 @@
+# -*- coding: utf-8 -*-
+'''
+Created on 26/04/2013
+
+@author: José M. Camacho - camachososa@josemazocom
+@author: Gabriel E. Muñoz - munozrios22@gmail.com
+'''
+
+'''
+The Core class contains the basic methods for
+communicate with SCORBOT or any serial device.
+'''
+
+
 import serial
 import atexit
 
 
 class Core:
-    '''
-    Scorbot core functions
-    '''
     
     
     def __init__(self, serial_port):
